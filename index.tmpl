@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="Regner det i Bergen?">
+		<meta name="author" content="Deprimert Bergenser">
+
+		<title>Regner det i Bergen ?</title>
+
+		<link rel="icon" href="static/favicon.ico">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link href="static/site.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="fullscreen background" data-img-width="1749" data-img-height="858">
+			<div class="content-a">
+				<div class="content-b">
+					<h1><span id="depressing_info"></span></h1>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+		<script src="static/site.js"></script>
+		<script type="text/javascript">
+$(document).ready(function() {
+
+	var fetchInterval = 5000;
+
+	rain();
+	setInterval(rain, fetchInterval);
+
+	function rain() {
+		$.getJSON("/status", function( data ) {
+			var status = data.message;
+			$("#depressing_info").text(status);
+
+			console.log(status);
+		});
+	}
+
+});
+		</script>
+	</body>
+</html>
+
+
