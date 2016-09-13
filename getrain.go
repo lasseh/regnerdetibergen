@@ -56,13 +56,13 @@ func GetRain() string {
 
 	switch {
 	case rain < 1:
-		return ("Regner ikke")
+		return ("Faktisk ikke")
 	case rain >= 1 && rain <= 5:
-		return ("Regner")
+		return ("Ja for faen")
 	case rain > 5 && rain <= 20:
-		return ("Heavy rain")
+		return ("Omg ja, hold deg inne")
 	default:
-		return ("No hit")
+		return ("Usikker")
 	}
 
 }
