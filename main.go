@@ -13,5 +13,5 @@ func main() {
 	http.HandleFunc("/status", statusHandler)
 
 	log.Println("Listening...")
-	log.Fatal(http.ListenAndServe(":1338", nil))
+	log.Fatal(http.ListenAndServe(":8003", nil))
 }
