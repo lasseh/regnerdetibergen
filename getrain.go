@@ -34,7 +34,8 @@ func GetRain() string {
 	req.Header.Add("Accept", "application/json")
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
+		return "Cloud'n svarer ikke :("
 	}
 
 	defer resp.Body.Close()
