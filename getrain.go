@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-const url = "https://www.yro.no/api/v0/locations/id/1-92416/forecast/now"
+const url = "https://www.yr.no/api/v0/locations/id/1-92416/forecast/now"
 
 type Data struct {
 	_links struct {
