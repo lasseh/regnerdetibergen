@@ -29,3 +29,8 @@ func statusHandler(w http.ResponseWriter, r *http.Request) {
 	s := status{Message: rain}
 	json.NewEncoder(w).Encode(s)
 }
+
+func yrHandler(w http.ResponseWriter, r *http.Request) {
+	rain := GetRaw()
+	json.NewEncoder(w).Encode(rain)
+}

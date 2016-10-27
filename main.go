@@ -10,6 +10,7 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/yr", yrHandler)
 	http.HandleFunc("/status", statusHandler)
 
 	log.Println("Listening...")

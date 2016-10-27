@@ -67,3 +67,27 @@ func GetRain() string {
 	}
 
 }
+
+func GetRaw() *Data {
+	client := &http.Client{}
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	req.Header.Add("Accept", "application/json")
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Print(err)
+	}
+
+	defer resp.Body.Close()
+	decoder := json.NewDecoder(resp.Body)
+	data := Data{}
+	err = decoder.Decode(&data)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return &data
+}
