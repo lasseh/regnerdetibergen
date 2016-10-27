@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-const url = "https://www.yr.no/api/v0/locations/id/1-92416/forecast/now"
+const url = "https://www.yro.no/api/v0/locations/id/1-92416/forecast/now"
 
 type Data struct {
 	_links struct {
@@ -34,7 +34,8 @@ func GetRain() string {
 	req.Header.Add("Accept", "application/json")
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal(err)
+		log.Print(err)
+		return "Cloud'n svarer ikke :("
 	}
 
 	defer resp.Body.Close()
