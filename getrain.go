@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
+	"time"
 )
 
 const url = "https://www.yr.no/api/v0/locations/id/1-92416/forecast/now"
@@ -24,6 +26,14 @@ type Data struct {
 	Update string `json:"update"`
 }
 
+func CheckTime(t string) bool {
+	currtime := time.Now()
+	t1, _ := time.Parse(
+		time.RFC3339,
+		t)
+	return currtime.Before(t1)
+}
+
 func GetRain() string {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", url, nil)
@@ -35,7 +45,7 @@ func GetRain() string {
 	resp, err := client.Do(req)
 	if err != nil {
 		log.Print(err)
-		return "Cloud'n svarer ikke :("
+		return ("Cloud'n svarer ikke :(")
 	}
 
 	defer resp.Body.Close()
@@ -49,8 +59,11 @@ func GetRain() string {
 	var total float64 = 0.0
 
 	for _, data := range data.Points {
-		rain := data.Precipitation.Intensity
-		total += rain
+		if CheckTime(data.Time) {
+			fmt.Println(data.Time)
+			rain := data.Precipitation.Intensity
+			total += rain
+		}
 	}
 
 	rain := int(total / float64(len(data.Points)))
