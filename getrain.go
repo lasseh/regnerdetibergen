@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -60,7 +59,6 @@ func GetRain() string {
 
 	for _, data := range data.Points {
 		if CheckTime(data.Time) {
-			fmt.Println(data.Time)
 			rain := data.Precipitation.Intensity
 			total += rain
 		}
