@@ -25,7 +25,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func statusHandler(w http.ResponseWriter, r *http.Request) {
-	rain := GetRain()
+	rain := GetDarkRain()
 	s := status{Message: rain}
 	json.NewEncoder(w).Encode(s)
 }
