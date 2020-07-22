@@ -47,7 +47,6 @@ func main() {
 		middleware.Logger,          // Log API request calls
 		middleware.Recoverer,       // Recover from panics without crashing server
 		middleware.RequestID,       // Injects a request ID into the context of each request
-		middleware.DefaultCompress, // Compress results, mostly gzipping assets and json
 		middleware.RedirectSlashes, // Redirect slashes to no slash URL versions
 		cors.Handler,               // Handle CORS headers
 	)
@@ -57,7 +56,7 @@ func main() {
 
 	// Serve Vue
 	workDir, _ := os.Getwd()
-	webDir := filepath.Join(workDir, "web/dist")
+	webDir := filepath.Join(workDir, "web")
 	fileServer(r, "/", http.Dir(webDir))
 
 	// Start the router

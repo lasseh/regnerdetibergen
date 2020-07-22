@@ -1,1 +1,0 @@
-http://regnerdetibergen.no/
