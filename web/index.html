@@ -47,7 +47,7 @@
 		window.setInterval(start, 10000);
 
 		function start() {
-			fetch('/status').then(function (res) {
+			fetch('/api/status').then(function (res) {
 				return res.json();
 			}).then(function (data) {
 				depressingInfoEl.innerText = data.message;
