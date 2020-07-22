@@ -54,7 +54,7 @@ func main() {
 	// /api/status
 	r.Get("/api/status", RainStatus)
 
-	// Serve Vue
+	// Serve Web
 	workDir, _ := os.Getwd()
 	webDir := filepath.Join(workDir, "web")
 	fileServer(r, "/", http.Dir(webDir))
