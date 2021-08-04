@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -99,6 +100,7 @@ func RainStatus(w http.ResponseWriter, r *http.Request) {
 	default:
 		s.Message = "Usikker, se ut vinduet!"
 	}
+	log.Println("Data:", s)
 
 	render.JSON(w, r, s)
 }
