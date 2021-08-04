@@ -86,6 +86,8 @@ func RainStatus(w http.ResponseWriter, r *http.Request) {
 
 	// Calculate current weather
 	switch {
+	case s.Intensity == 0 && s.Probability == 0:
+		s.Message = "Sol i Bergen? Fake news!"
 	case s.Intensity < 0.0 && s.Probability < 0.0:
 		s.Message = "Nei, faktisk ikke!"
 	case s.Intensity < 0.1 && s.Probability > 0.15:
