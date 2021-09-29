@@ -1,0 +1,16 @@
+# Service file for https://regnerdetibergen.no
+[Unit]
+Description=RegnerDetIBergen.no
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/lasse/code/go/src/github.com/lasseh/regnerdetibergen
+ExecStart=/home/lasse/code/go/bin/regnerdetibergen
+ExecReload=/usr/bin/kill -HUP $MAINPID
+Restart=on-failure
+User=lasse
+Group=lasse
+
+[Install]
+WantedBy=multi-user.target
