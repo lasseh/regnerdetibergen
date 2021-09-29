@@ -25,6 +25,8 @@
 	<link rel="icon" href="static/favicon.ico">
 	<link href="static/site.css" rel="stylesheet">
 
+	 <script async defer data-domain="regnerdetibergen.no" src="https://analytics.lasse.cloud/js/plausible.js"></script>
+
 	<!--[if !IE]>-->
 	<style>
 		#rip_ie {
@@ -44,7 +46,7 @@
 	<!--[if !IE]>-->
 	<script type="text/javascript">
 		const depressingInfoEl = document.getElementById('depressing_info');
-		window.setInterval(start, 10000);
+		window.setInterval(start, 120000);
 
 		function start() {
 			fetch('/api/status').then(function (res) {
